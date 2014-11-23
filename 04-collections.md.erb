@@ -26,7 +26,7 @@ paragraphs: 72
 我们希望我们的帖子Post可以持久存储并分享给用户们， 所以我们一开始就要建立一个叫 `Posts` 的集合来存储他们。 如果你还没有在根文件夹建立一个叫做 `collections/` 的文件夹， 并在里面放一个 `posts.js` 的文件的话，那现在就加上。
 
 ~~~js
-Posts = new Meteor.Collection('posts');
+Posts = new Mongo.Collection('posts');
 ~~~
 <%= caption "lib/collections/posts.js" %>
 
@@ -109,7 +109,7 @@ Mongo 的语法由于借鉴了 Javascript 的语法所以十分熟悉。我们�
 
 ### 客户端集合
 
-客户端的集合更加有趣。当你在客户端申明 `Posts= new Meteor.Collection('posts');` 你实际上是创建了一个本地的，在浏览器缓存中的真实的 Mongo 集合。 当我们说客户端集合被"缓存"是指它保存了你数据的一个*子集*，而且对这些数据提供了十分*快速*的访问。
+客户端的集合更加有趣。当你在客户端申明 `Posts= new Mongo.Collection('posts');` 你实际上是创建了一个本地的，在浏览器缓存中的真实的 Mongo 集合。 当我们说客户端集合被"缓存"是指它保存了你数据的一个*子集*，而且对这些数据提供了十分*快速*的访问。
 
 有一点我们必须要明白，因为这是 Meteor 工作的一个基础: 通常说来，客户端的集合的数据是你 Mongo 数据库的所有数据的一个子集(毕竟我们不会想把*整个*数据库的数据全传到客户端来)
 
